@@ -1,0 +1,3 @@
+displayName = Genshin Impact Mod
+author = Sean Weidlich
+version = 0.1
