@@ -1,10 +1,10 @@
 This is the new Genshin Impact x Terraria Mod
 
-There will be 5 new weapons and 1 new NPC 
+There will be 10 new weapons and 2 new NPC 
 
-NPC: Smith's Apprentice
+NPC: Smith's Apprentice, Wagner
 
-Weapons: Waster Greatsword, Dull Blade, Apprentice's Notes, Hunter's Bow, Beginners Protector
+Weapons: Waster Greatsword, Dull Blade, Apprentice's Notes, Hunter's Bow, Beginners Protector, and all of Genshin Impact's 2 star weapon pack
 
 this is the first version and meant to be a beta test for everyone on TMOD so there will most likely be errors in code and sprites please contact me through discord
 
