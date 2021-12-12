@@ -8,6 +8,7 @@ using Terraria.ModLoader;
 using Terraria.ID;
 using Microsoft.Xna.Framework;
 
+
 namespace GenshinImpactMod.Projectiles.SpearProjectiles
 {
 	class BeginnersProtectorProj : ModProjectile

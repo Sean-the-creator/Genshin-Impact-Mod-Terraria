@@ -9,7 +9,7 @@ using Terraria.ID;
 
 namespace GenshinImpactMod
 {
-    class Player : ModPlayer
+    class ModdedPlayer : ModPlayer
     {
         //nothign necessary just yet, just a player class to use later.
     }

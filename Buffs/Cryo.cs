@@ -25,10 +25,11 @@ namespace GenshinImpactMod.Buffs
 
 		//used for calculating when damage ticks should happen
 		int DmgCounter = 0;
+		int NpcDmgCounter = 0;
 
         public override void Update(Terraria.Player player, ref int buffIndex)
         {
-			Player p = player.GetModPlayer<Player>();
+			ModdedPlayer p = player.GetModPlayer<ModdedPlayer>();
 			//  ^ not necessary but may be used for combination of attacks!
 			
 			//this function is called every tick, so the player should get damaged by 6 damage a second
@@ -43,5 +44,18 @@ namespace GenshinImpactMod.Buffs
 				DmgCounter = 0;
             }
         }
+        public override void Update(NPC npc, ref int buffIndex)
+        {
+			npc.stepSpeed -= 0.05f;
+			if (NpcDmgCounter == 1)
+			{
+				npc.life -= 2;
+			}
+			NpcDmgCounter++;
+			if (NpcDmgCounter >= 20)
+			{
+				NpcDmgCounter = 0;
+			}
+		}
     }
 }
