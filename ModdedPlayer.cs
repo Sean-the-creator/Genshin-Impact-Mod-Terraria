@@ -33,6 +33,7 @@ namespace GenshinImpactMod
 
         public override void OnHitNPC(Item item, NPC target, int damage, float knockback, bool crit)
         {
+            SkyriderGreatswordCounter = 0;
             if (SkyriderGreatswordDelay <= 0)
             {
                 SkyriderGreatswordHit += 1;

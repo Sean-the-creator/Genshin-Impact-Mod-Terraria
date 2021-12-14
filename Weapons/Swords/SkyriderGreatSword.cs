@@ -36,7 +36,7 @@ namespace GenshinImpactMod.Weapons.Swords
         public override void GetWeaponDamage(Player player, ref int damage)
         {
             ModdedPlayer p = player.GetModPlayer<ModdedPlayer>();
-            damage += (int)(p.SkyriderGreatswordHit * 0.1f);
+            damage += (int)(p.SkyriderGreatswordHit * 0.1f * damage);
         }
     }
 }
