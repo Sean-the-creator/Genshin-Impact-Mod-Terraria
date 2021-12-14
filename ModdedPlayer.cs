@@ -13,7 +13,7 @@ namespace GenshinImpactMod
 {
     class ModdedPlayer : ModPlayer
     {
-        #region UI
+        #region Hotkeys
         public override void ProcessTriggers(TriggersSet triggersSet)
         {
             if (GenshinImpactMod.ToggleWishingSystem.JustPressed)
