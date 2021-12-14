@@ -6,12 +6,31 @@ using System.Threading.Tasks;
 using Terraria.ModLoader;
 using Terraria;
 using Terraria.ID;
+using Terraria.GameInput;
+using GenshinImpactMod.UI;
 
 namespace GenshinImpactMod
 {
     class ModdedPlayer : ModPlayer
     {
-        //nothign necessary just yet, just a player class to use later.
+        #region UI
+        public override void ProcessTriggers(TriggersSet triggersSet)
+        {
+            if (GenshinImpactMod.ToggleWishingSystem.JustPressed)
+            {
+                if (WishingSystem.Visible)
+                {
+                    WishingSystem.Visible = false;
+                }
+                else if (!WishingSystem.Visible)
+                {
+                    WishingSystem.Visible = true;
+                }
+            }
+        }
+        #endregion
+
+        
         public bool defeatedOpponent = false;
         private int counter = 0;
         public override void OnHitNPCWithProj(Projectile proj, NPC target, int damage, float knockback, bool crit)
