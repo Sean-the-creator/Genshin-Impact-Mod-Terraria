@@ -18,14 +18,7 @@ namespace GenshinImpactMod
         {
             if (GenshinImpactMod.ToggleWishingSystem.JustPressed)
             {
-                if (WishingSystem.Visible)
-                {
-                    WishingSystem.Visible = false;
-                }
-                else if (!WishingSystem.Visible)
-                {
-                    WishingSystem.Visible = true;
-                }
+                WishingSystem.Visible = !WishingSystem.Visible;
             }
         }
         #endregion
