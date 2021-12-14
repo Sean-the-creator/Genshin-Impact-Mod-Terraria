@@ -1,19 +1,4 @@
-﻿/* Current notes for UI
- * 
- * 
- * 1 Finish the CloseButton method
- * 
- * 2 Add item values
- */
-
-
-
-
-
-
-
-
-using System;
+﻿using System;
 using System.Linq;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -39,24 +24,24 @@ namespace GenshinImpactMod.UI
             WishSystemPanel = new DragableUI();
             WishSystemPanel.Left.Set(400f, 0f);
             WishSystemPanel.Top.Set(100f, 0f);
-            WishSystemPanel.Width.Set(360f, 0f);
-            WishSystemPanel.Height.Set(180f, 0f);
+            WishSystemPanel.Width.Set(600f, 0f);
+            WishSystemPanel.Height.Set(300f, 0f);
             Texture2D wishButtonTexture = ModContent.GetTexture("Terraria/UI/ButtonPlay");
 
             UIHoverImageButton wishButton = new UIHoverImageButton(wishButtonTexture, "Wish");
-            wishButton.Left.Set(10f, 0f);
-            wishButton.Top.Set(10f, 0f);
-            wishButton.Width.Set(22f, 0f);
-            wishButton.Height.Set(22f, 0f);
+            wishButton.Left.Set(432f, 0f);
+            wishButton.Top.Set(64f, 0f);
+            wishButton.Width.Set(88f, 0f);
+            wishButton.Height.Set(88f, 0f);
             wishButton.OnClick += new MouseEvent(WishButtonClicked);
             
 
             Texture2D deleteButtonTexture = ModContent.GetTexture("Terraria/UI/ButtonDelete");
             UIHoverImageButton closeButton = new UIHoverImageButton(deleteButtonTexture, Language.GetTextValue("LegacyInterface.52"));
-            closeButton.Left.Set(30f, 0f);
-            closeButton.Top.Set(10f, 0f);
-            closeButton.Width.Set(22f, 0f);
-            closeButton.Height.Set(22f, 0f);
+            closeButton.Left.Set(536f, 0f);
+            closeButton.Top.Set(240f, 0f);
+            closeButton.Width.Set(32f, 0f);
+            closeButton.Height.Set(32f, 0f);
             closeButton.OnClick += new MouseEvent(CloseButtonClicked);
             
 
@@ -64,12 +49,12 @@ namespace GenshinImpactMod.UI
             WishingSystemBanner = new UIImage(wishingSystemBanner);
             WishingSystemBanner.Left.Set(0f, 0f);
             WishingSystemBanner.Top.Set(0f, 0f);
-            WishingSystemBanner.Width.Set(360f, 0);
-            WishingSystemBanner.Height.Set(180f, 0f);
+            WishingSystemBanner.Width.Set(600f, 0);
+            WishingSystemBanner.Height.Set(300f, 0f);
 
             WishSystemPanel.Append(wishButton);
-            WishSystemPanel.Append(WishingSystemBanner);
             WishSystemPanel.Append(closeButton);
+            WishSystemPanel.Append(WishingSystemBanner);
             Append(WishSystemPanel);
         }
 
