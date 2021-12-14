@@ -24,14 +24,18 @@ namespace GenshinImpactMod
         #endregion
 
         
-        public bool defeatedOpponent = false;
+        public int defeatedOpponent = 0;
         private int counter = 0;
         public override void OnHitNPCWithProj(Projectile proj, NPC target, int damage, float knockback, bool crit)
         {
             if(target.life <= 0)
             {
-                defeatedOpponent = true;
+                defeatedOpponent += 1;
                 counter = 0;
+                if(defeatedOpponent >= 3)
+                {
+                    defeatedOpponent = 3;
+                }
             }
         }
         public override void PostUpdate()
@@ -39,7 +43,7 @@ namespace GenshinImpactMod
             counter++;
             if(counter >= 1800)
             {
-                defeatedOpponent = false;
+                defeatedOpponent = 0;
                 counter = 0;
             }
         }

@@ -15,8 +15,8 @@ namespace GenshinImpactMod.Weapons.Spears
     {
         public override void SetStaticDefaults()
         {
-            Tooltip.SetDefault("A polearm as straight as a flag pole. Well suited to most combat situations, it has an imposing presence when swung.");
-            DisplayName.SetDefault("Beginner's Protector");
+            Tooltip.SetDefault("ITS BLACK");
+            DisplayName.SetDefault("Black Cliff Pole");
         }
 
         public override void SetDefaults()
@@ -43,9 +43,9 @@ namespace GenshinImpactMod.Weapons.Spears
         public override void GetWeaponDamage(Player player, ref int damage)
         {
             ModdedPlayer p = player.GetModPlayer<ModdedPlayer>();
-            if (p.defeatedOpponent)
+            if (p.defeatedOpponent >= 1)
             {
-                damage += (int)(damage * 0.24f);
+                damage += (int)(damage * p.defeatedOpponent * 0.24f);
             }
         }
     }
