@@ -9,6 +9,8 @@ using Terraria.ModLoader;
 using Terraria.UI;
 using GenshinImpactMod.Weapons.Spears;
 using Terraria.GameContent.UI.Elements;
+using GenshinImpactMod.Weapons.Swords;
+using GenshinImpactMod.Weapons.Claymores;
 
 
 namespace GenshinImpactMod.UI
@@ -73,7 +75,27 @@ namespace GenshinImpactMod.UI
                 {
                     if (item.type == ModContent.ItemType</*Temporary*/IronPoint>())
                     {
-                        item.SetDefaults(ItemID.Wood);
+                        var randomitem = ModContent.ItemType<WasterGreatsword>();
+                        switch (Main.rand.Next(1, 4))
+                        {
+                            case 1:
+                                randomitem = ModContent.ItemType<SkyriderGreatSword>();
+                                break;
+
+                            case 2:
+                                randomitem = ModContent.ItemType<BlackCliffPole>();
+                                break;
+
+                            case 3:
+                                randomitem = ModContent.ItemType<HarbingersDawn>();
+                                break;
+
+                            default:
+                                randomitem = ModContent.ItemType<WasterGreatsword>() ;
+                                break;
+                        }
+                        player.QuickSpawnItem(randomitem);
+                        item.TurnToAir();
                     }
                 }
 
