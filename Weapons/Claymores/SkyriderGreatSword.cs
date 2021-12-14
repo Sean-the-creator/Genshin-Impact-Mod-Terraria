@@ -7,7 +7,7 @@ using Terraria.ModLoader;
 using Terraria;
 using Terraria.ID;
 
-namespace GenshinImpactMod.Weapons.Swords
+namespace GenshinImpactMod.Weapons.Claymores
 {
     class SkyriderGreatSword : ModItem
     {
