@@ -27,8 +27,8 @@ Arrows rained down upon him. ");
         {
             item.damage = 26;
             item.melee = true;
-            item.width = 64;
-            item.height = 64;
+            item.width = 76;
+            item.height = 76;
             item.useTime = 20;
             item.useAnimation = 20;
             item.knockBack = 5;

@@ -21,10 +21,10 @@ namespace GenshinImpactMod.Weapons.Swords
         {
             item.damage = 26;
             item.melee = true;
-            item.width = 64;
-            item.height = 64;
-            item.useTime = 20;
-            item.useAnimation = 20;
+            item.width = 106;
+            item.height = 106;
+            item.useTime = 40;
+            item.useAnimation = 40;
             item.knockBack = 5;
             item.value = Item.buyPrice(gold: 1);
             item.rare = 13;
