@@ -7,7 +7,7 @@ using Terraria.ModLoader;
 using Terraria;
 using Terraria.ID;
 
-namespace GenshinImpactMod.Weapons.Claymores
+namespace GenshinImpactMod.Weapons.Swords
 {
     class HarbingersDawn : ModItem
     {
