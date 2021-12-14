@@ -8,7 +8,6 @@ using Terraria;
 using Terraria.ID;
 using Terraria.GameInput;
 using GenshinImpactMod.UI;
-using Terraria.GameInputs;
 
 namespace GenshinImpactMod
 {
