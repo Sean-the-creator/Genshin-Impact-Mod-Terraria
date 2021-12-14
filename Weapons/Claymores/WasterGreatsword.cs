@@ -18,10 +18,10 @@ namespace GenshinImpactMod.Weapons.Claymores
 
         public override void SetDefaults()
         {
-            item.damage = 35;
+            item.damage = 19;
             item.melee = true;
-            item.width = 58;
-            item.height = 64;
+            item.width = 116;
+            item.height = 128;
             item.useTime = 40;
             item.useAnimation = 40;
             item.knockBack = 10;
