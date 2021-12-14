@@ -24,27 +24,55 @@ namespace GenshinImpactMod
         #endregion
 
         
-        public int defeatedOpponent = 0;
-        private int counter = 0;
+        public int BlackCliffdefeatedOpponent = 0;
+        private int BlackCliffcounter = 0;
+
+        public int SkyriderGreatswordHit = 0;
+        private int SkyriderGreatswordCounter = 0;
+        private int SkyriderGreatswordDelay = 0;
+
+        public override void OnHitNPC(Item item, NPC target, int damage, float knockback, bool crit)
+        {
+            if (SkyriderGreatswordDelay <= 0)
+            {
+                SkyriderGreatswordHit += 1;
+                SkyriderGreatswordDelay = 30;
+                if (SkyriderGreatswordHit >= 4)
+                {
+                    SkyriderGreatswordHit = 4;
+                }
+            }
+        }
         public override void OnHitNPCWithProj(Projectile proj, NPC target, int damage, float knockback, bool crit)
         {
             if(target.life <= 0)
             {
-                defeatedOpponent += 1;
-                counter = 0;
-                if(defeatedOpponent >= 3)
+                BlackCliffdefeatedOpponent += 1;
+                BlackCliffcounter = 0;
+                if(BlackCliffdefeatedOpponent >= 3)
                 {
-                    defeatedOpponent = 3;
+                    BlackCliffdefeatedOpponent = 3;
                 }
             }
         }
         public override void PostUpdate()
         {
-            counter++;
-            if(counter >= 1800)
+            SkyriderGreatswordCounter++;
+            if (SkyriderGreatswordDelay > 0)
             {
-                defeatedOpponent = 0;
-                counter = 0;
+                SkyriderGreatswordDelay--;
+            }
+            if(SkyriderGreatswordCounter >= 360)
+            {
+                SkyriderGreatswordCounter = 0;
+                SkyriderGreatswordHit = 0;
+            }
+
+            BlackCliffcounter++;
+            if(BlackCliffcounter >= 1800)
+            {
+                BlackCliffdefeatedOpponent = 0;
+                BlackCliffcounter = 0;
             }
         }
     }

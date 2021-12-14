@@ -43,9 +43,9 @@ namespace GenshinImpactMod.Weapons.Spears
         public override void GetWeaponDamage(Player player, ref int damage)
         {
             ModdedPlayer p = player.GetModPlayer<ModdedPlayer>();
-            if (p.defeatedOpponent >= 1)
+            if (p.BlackCliffdefeatedOpponent >= 1)
             {
-                damage += (int)(damage * p.defeatedOpponent * 0.24f);
+                damage += (int)(damage * p.BlackCliffdefeatedOpponent * 0.24f);
             }
         }
     }
