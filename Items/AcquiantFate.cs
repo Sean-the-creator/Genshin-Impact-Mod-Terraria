@@ -22,7 +22,7 @@ namespace GenshinImpactMod.Items
             ModContent.ItemType<HarbingersDawn>()};
         public override void SetStaticDefaults()
         {
-            Tooltip.SetDefault("\"The fate of the world is in your hands\"\n-some random dude");
+            Tooltip.SetDefault("\"The fate of the world is in your hands\"\n-some random dude\"\n A secret currency just don't go into controls and see the hotkey we made");
             DisplayName.SetDefault("Aqquaint Fate");
         }
         public override void SetDefaults()
