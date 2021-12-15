@@ -67,7 +67,6 @@ namespace GenshinImpactMod.UI
 
         private void WishButtonClicked(UIMouseEvent evt, UIElement listeningElement)
         {
-            Main.PlaySound(SoundID.MenuOpen);
             for (int k = 0; k < 255; k++)
             {
                 Player player = Main.player[k];
