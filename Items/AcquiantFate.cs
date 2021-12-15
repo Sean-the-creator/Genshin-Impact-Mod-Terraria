@@ -23,7 +23,7 @@ namespace GenshinImpactMod.Items
         public override void SetStaticDefaults()
         {
             Tooltip.SetDefault("\"The fate of the world is in your hands\"\n-some random dude");
-            DisplayName.SetDefault("Aqquaint Fate");
+            DisplayName.SetDefault("Acquaint Fate");
         }
         public override void SetDefaults()
         {
