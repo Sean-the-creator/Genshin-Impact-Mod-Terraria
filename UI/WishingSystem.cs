@@ -8,7 +8,13 @@ using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.UI;
 using GenshinImpactMod.Weapons.Spears;
+using GenshinImpactMod.Weapons.Swords;
+using GenshinImpactMod.Weapons.Claymores;
+using GenshinImpactMod.Weapons.Bows;
+using GenshinImpactMod.Weapons.Catalysts;
 using Terraria.GameContent.UI.Elements;
+using System.Collections.Generic;
+using GenshinImpactMod.Items;
 
 
 namespace GenshinImpactMod.UI
@@ -18,9 +24,24 @@ namespace GenshinImpactMod.UI
         public DragableUI WishSystemPanel;
         public UIImage WishingSystemBanner;
         public static bool Visible;
+        private int[] weapons = new int[]{ModContent.ItemType<HuntersBow>(),
+            ModContent.ItemType<SeasonedHuntersBow>(),
+            ModContent.ItemType<ApprenticesNotes>(),
+            ModContent.ItemType<PocketGrimoire>(),
+            ModContent.ItemType<OldMercsPal>(),
+            ModContent.ItemType<SkyriderGreatSword>(),
+            ModContent.ItemType<WasterGreatsword>(),
+            ModContent.ItemType<BeginnersProtector>(),
+            ModContent.ItemType<BlackCliffPole>(),
+            ModContent.ItemType<IronPoint>(),
+            ModContent.ItemType<DullBlade>(),
+            ModContent.ItemType<HarbingersDawn>(),
+            ModContent.ItemType<SilverSword>(),
+            ModContent.ItemType<WasterGreatsword>()};
 
         public override void OnInitialize()
         {
+            
             WishSystemPanel = new DragableUI();
             WishSystemPanel.Left.Set(400f, 0f);
             WishSystemPanel.Top.Set(100f, 0f);
@@ -71,9 +92,13 @@ namespace GenshinImpactMod.UI
 
                 foreach (Item item in player.inventory)
                 {
-                    if (item.type == ModContent.ItemType</*Temporary*/IronPoint>())
+                    Random random = new Random();
+                    if (item.type == ModContent.ItemType<AcquiantFate>())
                     {
-                        item.SetDefaults(ItemID.Wood);
+                        item.SetDefaults(weapons[random.Next(0, weapons.Length)]);
+                        Main.PlaySound(SoundID.Pixie);
+                        for(int x = 0; x < 10; x++) { int dust = Dust.NewDust(player.position, player.height, player.width, DustID.Firework_Yellow, random.Next(-3,3), random.Next(-3,3));}
+                        break;
                     }
                 }
 
