@@ -31,6 +31,11 @@ namespace GenshinImpactMod
         private int SkyriderGreatswordCounter = 0;
         private int SkyriderGreatswordDelay = 0;
 
+        public bool ThrillingTalesOfDragonSlayersDmgModifier = false;
+        private int ThrillingTalesOfDragonSlayersDelay = 0;
+        private int ThrillingTalesOfDragonSlayersLastItem = 0;
+        private int ThrillingTalesOfDragonSlayersTimeRemaining = 0;
+
         public override void OnHitNPC(Item item, NPC target, int damage, float knockback, bool crit)
         {
             SkyriderGreatswordCounter = 0;
@@ -55,6 +60,16 @@ namespace GenshinImpactMod
                     BlackCliffdefeatedOpponent = 3;
                 }
             }
+            
+            if(proj.type != ThrillingTalesOfDragonSlayersLastItem)
+            {
+                ThrillingTalesOfDragonSlayersLastItem = proj.type;
+                if (ThrillingTalesOfDragonSlayersDelay == 0)
+                {
+                    ThrillingTalesOfDragonSlayersTimeRemaining = 600;
+                    ThrillingTalesOfDragonSlayersDelay = 1200;
+                }
+            }
         }
         public override void PostUpdate()
         {
@@ -74,6 +89,15 @@ namespace GenshinImpactMod
             {
                 BlackCliffdefeatedOpponent = 0;
                 BlackCliffcounter = 0;
+            }
+            ThrillingTalesOfDragonSlayersDmgModifier = ThrillingTalesOfDragonSlayersTimeRemaining > 0;
+            if(ThrillingTalesOfDragonSlayersTimeRemaining > 0)
+            {
+                ThrillingTalesOfDragonSlayersTimeRemaining--;
+            }
+            if(ThrillingTalesOfDragonSlayersDelay > 0)
+            {
+                ThrillingTalesOfDragonSlayersDelay--;
             }
         }
     }

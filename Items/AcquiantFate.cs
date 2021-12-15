@@ -19,7 +19,8 @@ namespace GenshinImpactMod.Items
         public static int[] items = new int[]{ModContent.ItemType<HuntersBow>(),
             ModContent.ItemType<SkyriderGreatSword>(),
             ModContent.ItemType<BlackCliffPole>(),
-            ModContent.ItemType<HarbingersDawn>()};
+            ModContent.ItemType<HarbingersDawn>(),
+            ModContent.ItemType<ThrillingTalesOfDragonSlayers>()};
         public override void SetStaticDefaults()
         {
             Tooltip.SetDefault("\"The fate of the world is in your hands\"\n-some random dude\"\n A secret currency just don't go into controls and see the hotkey we made");
