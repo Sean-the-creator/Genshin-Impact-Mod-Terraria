@@ -24,20 +24,6 @@ namespace GenshinImpactMod.UI
         public DragableUI WishSystemPanel;
         public UIImage WishingSystemBanner;
         public static bool Visible;
-        private int[] weapons = new int[]{ModContent.ItemType<HuntersBow>(),
-            ModContent.ItemType<SeasonedHuntersBow>(),
-            ModContent.ItemType<ApprenticesNotes>(),
-            ModContent.ItemType<PocketGrimoire>(),
-            ModContent.ItemType<OldMercsPal>(),
-            ModContent.ItemType<SkyriderGreatSword>(),
-            ModContent.ItemType<WasterGreatsword>(),
-            ModContent.ItemType<BeginnersProtector>(),
-            ModContent.ItemType<BlackCliffPole>(),
-            ModContent.ItemType<IronPoint>(),
-            ModContent.ItemType<DullBlade>(),
-            ModContent.ItemType<HarbingersDawn>(),
-            ModContent.ItemType<SilverSword>(),
-            ModContent.ItemType<WasterGreatsword>()};
 
         public override void OnInitialize()
         {
@@ -95,9 +81,10 @@ namespace GenshinImpactMod.UI
                     Random random = new Random();
                     if (item.type == ModContent.ItemType<AcquiantFate>())
                     {
-                        item.SetDefaults(weapons[random.Next(0, weapons.Length)]);
+                        int[] Items = AcquiantFate.items;
+                        item.SetDefaults(Items[random.Next(0, Items.Length)]);
                         Main.PlaySound(SoundID.Pixie);
-                        for(int x = 0; x < 10; x++) { int dust = Dust.NewDust(player.position, player.height, player.width, DustID.Firework_Yellow, random.Next(-3,3), random.Next(-3,3));}
+                        for(int x = 0; x < 10; x++) { int dust = Dust.NewDust(player.position, player.height, player.width, DustID.Firework_Blue, random.Next(-3,3), random.Next(-3,3));}
                         break;
                     }
                 }
