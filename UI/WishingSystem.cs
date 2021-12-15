@@ -85,7 +85,7 @@ namespace GenshinImpactMod.UI
                         player.QuickSpawnItem(Items[random.Next(0, Items.Length)]);
                         item.TurnToAir();
                         Main.PlaySound(SoundID.Pixie);
-                        for(int x = 0; x < 10; x++) { int dust = Dust.NewDust(player.position, player.height, player.width, DustID.Firework_Blue, random.Next(-3,3), random.Next(-3,3));}
+                        for(int x = 0; x < 10; x++) { int dust = Dust.NewDust(player.position, player.height, player.width, DustID.Clentaminator_Cyan, random.Next(-3,3), random.Next(-3,3));}
                         break;
                     }
                 }
