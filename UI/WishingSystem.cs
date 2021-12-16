@@ -82,7 +82,7 @@ namespace GenshinImpactMod.UI
                     if (item.type == ModContent.ItemType<AcquiantFate>())
                     {
                         int[] Items = AcquiantFate.items;
-                        item.SetDefaults(Items[random.Next(0, Items.Length)]);
+                        player.QuickSpawnItem(Items[random.Next(0, Items.Length)]);
 
                         Main.PlaySound(SoundID.Pixie);
                         for (int x = 0; x < 10; x++) { int dust = Dust.NewDust(player.position, player.height, player.width, DustID.Clentaminator_Cyan, random.Next(-3, 3), random.Next(-3, 3)); }
