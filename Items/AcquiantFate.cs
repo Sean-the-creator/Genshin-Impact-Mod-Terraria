@@ -16,11 +16,9 @@ namespace GenshinImpactMod.Items
 {
     class AcquiantFate : ModItem
     {
-        public static int[] items = new int[]{ModContent.ItemType<HuntersBow>(),
-            ModContent.ItemType<SkyriderGreatSword>(),
+        public static int[] items = new int[]{ModContent.ItemType<SkyriderGreatSword>(),
             ModContent.ItemType<BlackCliffPole>(),
-            ModContent.ItemType<HarbingersDawn>(),
-            ModContent.ItemType<ThrillingTalesOfDragonSlayers>()};
+            ModContent.ItemType<HarbingersDawn>() };
         public override void SetStaticDefaults()
         {
             Tooltip.SetDefault("\"The fate of the world is in your hands\"\n-some random dude\"\n A secret currency just don't go into controls and see the hotkey we made");

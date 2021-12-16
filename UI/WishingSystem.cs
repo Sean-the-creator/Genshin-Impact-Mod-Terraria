@@ -27,7 +27,7 @@ namespace GenshinImpactMod.UI
 
         public override void OnInitialize()
         {
-            
+
             WishSystemPanel = new DragableUI();
             WishSystemPanel.Left.Set(400f, 0f);
             WishSystemPanel.Top.Set(100f, 0f);
@@ -41,7 +41,7 @@ namespace GenshinImpactMod.UI
             wishButton.Width.Set(88f, 0f);
             wishButton.Height.Set(88f, 0f);
             wishButton.OnClick += new MouseEvent(WishButtonClicked);
-            
+
 
             Texture2D deleteButtonTexture = ModContent.GetTexture("Terraria/UI/ButtonDelete");
             UIHoverImageButton closeButton = new UIHoverImageButton(deleteButtonTexture, Language.GetTextValue("LegacyInterface.52"));
@@ -50,7 +50,7 @@ namespace GenshinImpactMod.UI
             closeButton.Width.Set(32f, 0f);
             closeButton.Height.Set(32f, 0f);
             closeButton.OnClick += new MouseEvent(CloseButtonClicked);
-            
+
 
             Texture2D wishingSystemBanner = ModContent.GetTexture("GenshinImpactMod/UI/WishingSystem");
             WishingSystemBanner = new UIImage(wishingSystemBanner);
@@ -67,6 +67,7 @@ namespace GenshinImpactMod.UI
 
         private void WishButtonClicked(UIMouseEvent evt, UIElement listeningElement)
         {
+
             for (int k = 0; k < 255; k++)
             {
                 Player player = Main.player[k];
@@ -81,10 +82,10 @@ namespace GenshinImpactMod.UI
                     if (item.type == ModContent.ItemType<AcquiantFate>())
                     {
                         int[] Items = AcquiantFate.items;
-                        player.QuickSpawnItem(Items[random.Next(0, Items.Length)]);
-                        item.TurnToAir();
+                        item.SetDefaults(Items[random.Next(0, Items.Length)]);
+
                         Main.PlaySound(SoundID.Pixie);
-                        for(int x = 0; x < 10; x++) { int dust = Dust.NewDust(player.position, player.height, player.width, DustID.Clentaminator_Cyan, random.Next(-3,3), random.Next(-3,3));}
+                        for (int x = 0; x < 10; x++) { int dust = Dust.NewDust(player.position, player.height, player.width, DustID.Clentaminator_Cyan, random.Next(-3, 3), random.Next(-3, 3)); }
                         break;
                     }
                 }
