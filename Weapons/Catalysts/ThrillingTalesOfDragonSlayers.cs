@@ -15,7 +15,7 @@ namespace GenshinImpactMod.Weapons.Catalysts
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Thrilling Tales Of Dragon Slayers");
-            Tooltip.SetDefault("Contains many stories of mystical dragon slayers");
+            Tooltip.SetDefault("Contains many stories of mystical dragon slayers\nswitching weapons increases damage by 50% for 10 seconds (can only happen every 20 seconds)");
         }
 
         public override void SetDefaults()
@@ -41,6 +41,8 @@ namespace GenshinImpactMod.Weapons.Catalysts
         }
         public override void GetWeaponDamage(Player player, ref int damage)
         {
+
+            //takes modded player and sees if thrilling tales of dragon slayers should do more damage
             ModdedPlayer p = player.GetModPlayer<ModdedPlayer>();
             if (p.ThrillingTalesOfDragonSlayersDmgModifier)
             {
