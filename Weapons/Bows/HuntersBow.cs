@@ -13,7 +13,7 @@ namespace GenshinImpactMod.Weapons.Bows
     {
         public override void SetStaticDefaults()
         {
-            Tooltip.SetDefault("A hunter's music consists of but two sounds: the twang of the bowstring and the whoosh of soaring arrows.");
+            Tooltip.SetDefault("\"A hunter's music consists of but two sounds: the twang of the bowstring and the whoosh of soaring arrows.\"\n Does not consume ammo");
             DisplayName.SetDefault("Hunter's Bow");
         }
 

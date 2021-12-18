@@ -14,7 +14,7 @@ namespace GenshinImpactMod.Weapons.Bows
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Seasoned Hunter's Bow");
-            Tooltip.SetDefault("A bow that has been well-polished by time and meticulously cared for by its owner. It feels almost like an extension of the archer's arm.");
+            Tooltip.SetDefault("\"A bow that has been well-polished by time and meticulously cared for by its owner. It feels almost like an extension of the archer's arm.\"\n Does not consume ammo and shoots unholy arrows");
         }
 
         public override void SetDefaults()
