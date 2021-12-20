@@ -13,7 +13,7 @@ namespace GenshinImpactMod.Weapons.Claymores
     {
         public override void SetStaticDefaults()
         {
-            Tooltip.SetDefault("\"Bigger is always better, and swords are no exception\"\n-The Skyrider");
+            Tooltip.SetDefault("\"Bigger is always better, and swords are no exception\"\n-The Skyrider\"\nInreaces damage by hitting opponents");
             DisplayName.SetDefault("Skyrider Greatsword");
         }
 

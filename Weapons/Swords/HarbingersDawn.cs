@@ -19,7 +19,8 @@ Only one has ever fallen by this blade on the battlefield.
 One night, the bearer drew the sword triumphantly.
 The night sky lit up as bright as day,
 pin - pointing his precise location.
-Arrows rained down upon him. ");
+Arrows rained down upon him. 
+Increases crit rate if your health is below a certain percentage");
             DisplayName.SetDefault("Harbinger of Dawn");
         }
 

@@ -15,7 +15,7 @@ namespace GenshinImpactMod.Weapons.Spears
     {
         public override void SetStaticDefaults()
         {
-            Tooltip.SetDefault("ITS BLACK");
+            Tooltip.SetDefault("ITS BLACK\nFor every defeated opponent the BLACKNESS increases");
             DisplayName.SetDefault("Black Cliff Pole");
         }
 

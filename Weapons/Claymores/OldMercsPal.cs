@@ -14,7 +14,7 @@ namespace GenshinImpactMod.Weapons.Claymores
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Old Merc's Pal");
-            Tooltip.SetDefault("A battle-tested greatsword that has seen better days and worse.");
+            Tooltip.SetDefault("A battle-tested greatsword that has seen better days and worse.\n A slow but powerful sword");
         }
 
         public override void SetDefaults()

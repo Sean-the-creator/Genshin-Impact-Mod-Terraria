@@ -13,7 +13,7 @@ namespace GenshinImpactMod.Weapons.Catalysts
     {
         public override void SetStaticDefaults()
         {
-            Tooltip.SetDefault("Notes left behind by a top student. Many useful spells are listed, and the handwriting is beautiful.");
+            Tooltip.SetDefault("\"Notes left behind by a top student. Many useful spells are listed, and the handwriting is beautiful.\"\n Does not consume mana");
             DisplayName.SetDefault("Apprentice's Notes");
         }
 

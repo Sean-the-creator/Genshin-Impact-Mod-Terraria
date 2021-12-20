@@ -13,7 +13,7 @@ namespace GenshinImpactMod.Weapons.Claymores
     {
         public override void SetStaticDefaults()
         {
-            Tooltip.SetDefault("A sturdy sheet of iron that may be powerful enough to break apart mountains, if wielded with enough willpower.");
+            Tooltip.SetDefault("A sturdy sheet of iron that may be powerful enough to break apart mountains, if wielded with enough willpower.\n A slow but powerful sword");
         }
 
         public override void SetDefaults()

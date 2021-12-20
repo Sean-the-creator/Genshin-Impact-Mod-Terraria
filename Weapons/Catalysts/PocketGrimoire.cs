@@ -14,7 +14,7 @@ namespace GenshinImpactMod.Weapons.Catalysts
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Pocket Grimoire");
-            Tooltip.SetDefault("A carefully compiled notebook featuring the essentials needed to pass a magic exam.");
+            Tooltip.SetDefault("\"A carefully compiled notebook featuring the essentials needed to pass a magic exam.\"\n Does not consume mana");
         }
 
         public override void SetDefaults()
