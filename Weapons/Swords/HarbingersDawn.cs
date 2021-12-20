@@ -13,14 +13,7 @@ namespace GenshinImpactMod.Weapons.Swords
     {
         public override void SetStaticDefaults()
         {
-            Tooltip.SetDefault(@"This sword has an extraordinary full name:
-The Triumphant Harbinger of Dawn that Points Towards Victory.
-Only one has ever fallen by this blade on the battlefield.
-One night, the bearer drew the sword triumphantly.
-The night sky lit up as bright as day,
-pin - pointing his precise location.
-Arrows rained down upon him. 
-Increases crit rate if your health is below a certain percentage");
+            Tooltip.SetDefault("A sword that once shone like the sun. The wielder of this sword will be blessed with a \"feel - good\" buff. The reflective material on the blade has long worn off.\nIncreases crit rate if your health is below a certain percentage");
             DisplayName.SetDefault("Harbinger of Dawn");
         }
 
