@@ -1,4 +1,6 @@
-﻿using System;
+﻿// one small issue with sprite however it is barely noticable
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
