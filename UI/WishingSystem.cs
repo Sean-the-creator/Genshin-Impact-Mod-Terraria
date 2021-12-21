@@ -82,6 +82,7 @@ namespace GenshinImpactMod.UI
                     if (item.type == ModContent.ItemType<AcquiantFate>())
                     {
                         int[] Items = AcquiantFate.items;
+                        item.stack -= 1;
                         player.QuickSpawnItem(Items[random.Next(0, Items.Length)]);
 
                         Main.PlaySound(SoundID.Pixie);
