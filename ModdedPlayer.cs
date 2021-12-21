@@ -37,6 +37,10 @@ namespace GenshinImpactMod
         private int ThrillingTalesOfDragonSlayersLastItem = 0;
         private int ThrillingTalesOfDragonSlayersTimeRemaining = 0;
 
+
+        //establishes how many times the flute has hit someone out of 5
+        public int fluteHitCount = 0;
+
         public override void OnHitNPC(Item item, NPC target, int damage, float knockback, bool crit)
         {
             SkyriderGreatswordCounter = 0;
@@ -60,6 +64,13 @@ namespace GenshinImpactMod
                     ThrillingTalesOfDragonSlayersTimeRemaining = 600;
                     ThrillingTalesOfDragonSlayersDelay = 1200;
                 }
+            }
+
+            //when the flute hit count reaches 5 it automatically resets to zero
+            fluteHitCount++;
+            if(fluteHitCount >= 5)
+            {
+                fluteHitCount = 0;
             }
         }
         public override void OnHitNPCWithProj(Projectile proj, NPC target, int damage, float knockback, bool crit)
