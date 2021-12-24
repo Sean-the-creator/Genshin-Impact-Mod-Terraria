@@ -25,6 +25,11 @@ namespace GenshinImpactMod.UI
         public UIImage WishingSystemBanner;
         public static bool Visible;
 
+        public static int[] items = new int[]{ModContent.ItemType<SkyriderGreatSword>(),
+            ModContent.ItemType<BlackCliffPole>(),
+            ModContent.ItemType<HarbingersDawn>(),
+            ModContent.ItemType<ThrillingTalesOfDragonSlayers>()};
+
         public override void OnInitialize()
         {
 
@@ -81,10 +86,8 @@ namespace GenshinImpactMod.UI
                     Random random = new Random();
                     if (item.type == ModContent.ItemType<AcquiantFate>())
                     {
-                        int[] Items = AcquiantFate.items;
-                        item.stack -= 1;
-                        player.QuickSpawnItem(Items[random.Next(0, Items.Length)]);
-
+                        player.QuickSpawnItem(items[random.Next(0, items.Length)]);
+                        item.stack--;
                         Main.PlaySound(SoundID.Pixie);
                         for (int x = 0; x < 10; x++) { int dust = Dust.NewDust(player.position, player.height, player.width, DustID.Clentaminator_Cyan, random.Next(-3, 3), random.Next(-3, 3)); }
                         break;
