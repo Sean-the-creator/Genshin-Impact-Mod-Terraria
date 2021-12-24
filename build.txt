@@ -1,4 +1,4 @@
 displayName = Genshin Impact Mod
 author = Sean Weidlich
-version = 0.3
-homepage = https://discord.gg/PjEvMg7PhU
+version = 0.4
+homepage = https://discord.gg/WqHSkwxZqT
