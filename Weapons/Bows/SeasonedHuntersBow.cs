@@ -19,7 +19,7 @@ namespace GenshinImpactMod.Weapons.Bows
 
         public override void SetDefaults()
         {
-            item.damage = 45;
+            item.damage = 34;
             item.ranged = true;
             item.width = 16;
             item.height = 62;

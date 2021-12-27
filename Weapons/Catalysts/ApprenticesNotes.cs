@@ -19,7 +19,7 @@ namespace GenshinImpactMod.Weapons.Catalysts
 
         public override void SetDefaults()
         {
-            item.damage = 21;
+            item.damage = 14;
             item.magic = true;
             item.mana = 0;
             item.width = 28;
