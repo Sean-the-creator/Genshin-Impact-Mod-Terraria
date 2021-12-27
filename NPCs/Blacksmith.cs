@@ -93,9 +93,9 @@ namespace GenshinImpactMod.NPCs
             List<string> dialogue = new List<string>
             {
                 "Where in the world am I? This isn't Monsdadt!",
-                "Come, you'll find no second rate items here at Schulz's Blacksmith, well unless the weapons in this world are awful...",
+                "Come, you'll find no second rate items here at Schulz's Blacksmith, well unless the weapons in this world are powerful...",
                 "If you need assistance on finding ores just talk to me.",
-                "If you can't afford my items then I recommend talking to my apprentice Schulz, if he's here",
+                "If you can't afford my items then I recommend talking to my apprentice Schulz, if he's here.",
             };
 
             int goblinTinkerer = NPC.FindFirstNPC(NPCID.GoblinTinkerer);
@@ -108,7 +108,7 @@ namespace GenshinImpactMod.NPCs
             int armsdealer = NPC.FindFirstNPC(NPCID.ArmsDealer);
             if (armsdealer >= 0 && smithsAppentice >= 0)
             {
-                dialogue.Add("That puny " + Main.npc[armsdealer].GivenName + " thinks he can get away with anything like making me and my apprentice mad, don't show him any love");
+                dialogue.Add("That puny " + Main.npc[armsdealer].GivenName + " thinks he can get away with anything like making me and my apprentice mad, don't show him any love.");
             }
 
             if (smithsAppentice >= 0)
@@ -119,7 +119,7 @@ namespace GenshinImpactMod.NPCs
             int mechanic = NPC.FindFirstNPC(NPCID.Mechanic);
             if (mechanic >= 0 && !NPC.downedMechBossAny && goblinTinkerer < 0)
             {
-                dialogue.Add("Ah, a mechanic I see you have an engineer in this world");
+                dialogue.Add("Ah, a mechanic I see you have an engineer in this world.");
             }
 
             if (mechanic >= 0 && !NPC.downedMechBossAny && goblinTinkerer >= 0)
@@ -129,7 +129,7 @@ namespace GenshinImpactMod.NPCs
 
             if (mechanic >= 0 && NPC.downedMechBossAny)
             {
-                dialogue.Add(Main.npc[mechanic].GivenName + " was asking me if I can build something for her... she was talking about some sort of brain, skeleton, esophogas, and eye? I might help her");
+                dialogue.Add(Main.npc[mechanic].GivenName + " was asking me if I can build something for her... she was talking about some sort of brain, skeleton, esophogas, and eye? I might help her.");
             }
             return Main.rand.Next(dialogue);
         }
