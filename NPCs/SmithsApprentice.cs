@@ -81,7 +81,6 @@ namespace GenshinImpactMod.NPCs
             List<string> dialogue = new List<string>
             {
                 "My strength still fails me.",
-                "I wish Master were here.",
                 "Looking to buy a weapon? You should talk to Wagner ... wait he's not in this world.",
                 "What do I sell here? Take your pick from this selection. Sadly Master isn't here, so the weapons won't be as strong but, they can still help you fight.",
                 "Due to the fact that I'm an apprentice, my weapons aren't as good as Master's, but if you find them affordable I will gladly sell them to you.",
@@ -105,6 +104,11 @@ namespace GenshinImpactMod.NPCs
                 }
 
                 dialogue.Add("Master creates some of the best weapon in teyvat, he even knows where important ores are located!");
+            }
+
+            if (blacksmith < 0)
+            {
+                dialogue.Add("I wish Master were here.");
             }
 
             return Main.rand.Next(dialogue);
