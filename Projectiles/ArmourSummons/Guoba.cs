@@ -49,7 +49,7 @@ namespace GenshinImpactMod.Projectiles.ArmourSummons
             {
                 projectile.frame = (int)(timer / 5) + 4;
                 timer++;
-                Projectile.NewProjectile(projectile.position.X, projectile.position.Y, 0, 0, ProjectileID.Flames, 25, 0);
+                Projectile.NewProjectile(projectile.position.X, projectile.position.Y, 5, 0, ProjectileID.Flames, 25, 0);
                 if (timer > 20)
                 {
                     Stateidle = true;
