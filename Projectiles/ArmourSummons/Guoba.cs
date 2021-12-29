@@ -10,39 +10,13 @@ namespace GenshinImpactMod.Projectiles.ArmourSummons
     class Guoba: ModProjectile
     {
         #region Variables
-        private const int AI_State_Slot = 0;
-        private const int AI_Timer_Slot = 1;
-        private const int AI_Fire_Time_Slot = 2;
-        private const int AI_Cycle_Slot = 3;
+        private int timer = 0;
+        private int cycle = 0;
 
-        private const int STATE_IDLE = 0;
-        private const int STATE_FIRE = 1;
+        private bool Stateidle = true;
+        private bool Statefire = false;
         #endregion
-        #region Properties
-        public float AI_State
-        {
-            get => projectile.ai[AI_State_Slot];
-            set => projectile.ai[AI_State_Slot] = value;
-        }
 
-        public float AI_Timer
-        {
-            get => projectile.ai[AI_Timer_Slot];
-            set => projectile.ai[AI_Timer_Slot] = value;
-        }
-
-        public float AI_Fire_Time
-        {
-            get => projectile.ai[AI_Fire_Time_Slot];
-            set => projectile.ai[AI_Fire_Time_Slot] = value;
-        }
-
-        public float AI_Cycle
-        {
-            get => projectile.ai[AI_Cycle_Slot];
-            set => projectile.ai[AI_Cycle_Slot] = value;
-        }
-        #endregion
         #region SetDefaults 
         public override void SetDefaults()
         {
@@ -60,29 +34,30 @@ namespace GenshinImpactMod.Projectiles.ArmourSummons
         #endregion
         public override void AI()
         {
-            if (AI_State == STATE_IDLE)
+            if (Stateidle)
             {
-                AI_Timer = 0;
-                AI_Timer++;
-                if (AI_Timer > 20)
+                timer++;
+                if (timer > 20)
                 {
-                    AI_State = STATE_FIRE;
-                    AI_Timer = 0;
+                    Stateidle = false;
+                    Statefire = true;
+                    timer = 0;
                 }
             }
-            else if (AI_State == STATE_FIRE)
+            else if (Statefire)
             {
-                Projectile.NewProjectile(projectile.position.X, projectile.position.Y, 0, 0, ProjectileID.Flames, 35, 0);
-                AI_Timer++;
-                if(AI_Timer > 20)
+                timer++;
+                Projectile.NewProjectile(projectile.position.X, projectile.position.Y, 0, 0, ProjectileID.Flames, 25, 0);
+                if (timer > 20)
                 {
-                    AI_State = STATE_IDLE;
-                    AI_Timer = 0;
-                    AI_Cycle++;
+                    Stateidle = true;
+                    Statefire = false;
+                    cycle++;
                 }
             }
 
-            if (AI_Cycle == 4)
+
+            if (cycle > 4)
             {
                 projectile.Kill();
             }
