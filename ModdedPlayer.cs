@@ -35,8 +35,33 @@ namespace GenshinImpactMod
             }
         }
         #endregion
+        #region Hunger System
 
-        
+        public int Saturation = 0;
+        public bool CanEat = false;
+        private int EatingTimer = 0;
+        public override void PreUpdate()
+        {
+            EatingTimer++;
+            if(EatingTimer>= 120)
+            {
+                if(Saturation > 0)
+                {
+                    Saturation--;
+                }
+            }
+            if (Saturation >= 100)
+            {
+                CanEat = false;
+            }
+            else
+            {
+                CanEat = true;
+            }
+        }
+
+        #endregion
+
         public int BlackCliffdefeatedOpponent = 0;
         private int BlackCliffcounter = 0;
 
