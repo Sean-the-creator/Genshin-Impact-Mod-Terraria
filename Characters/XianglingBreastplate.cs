@@ -22,5 +22,6 @@ namespace GenshinImpactMod.Characters
             item.rare = ItemRarityID.Expert;
             item.defense = 0;
         }
+
     }
 }
