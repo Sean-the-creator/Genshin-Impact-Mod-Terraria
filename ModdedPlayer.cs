@@ -30,7 +30,7 @@ namespace GenshinImpactMod
             {
                 if (XianglingHelmet.isArmourSet)
                 {
-                    Projectile.NewProjectile(player.position.X, player.position.Y, 0, -1, ModContent.ProjectileType<Guoba>(), 30, 0);
+                    Projectile.NewProjectile(player.position.X, player.position.Y, 0, 1, ModContent.ProjectileType<Guoba>(), 30, 0, player.whoAmI);
                 }
             }
         }
