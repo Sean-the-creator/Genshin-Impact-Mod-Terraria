@@ -1,17 +1,15 @@
 ﻿using Terraria;
 using Terraria.ModLoader;
 using Terraria.ID;
-using GenshinImpactMod;
 
 namespace GenshinImpactMod.Characters
 {
-    [AutoloadEquip(EquipType.Body)]
-    class XianglingBreastplate : ModItem
+    [AutoloadEquip(EquipType.Legs)]
+    class XianglingLeggings : ModItem
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Xiangling chest ;)");
-
+            DisplayName.SetDefault("Xiangling Legs");
         }
 
         public override void SetDefaults()

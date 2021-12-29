@@ -28,7 +28,7 @@ namespace GenshinImpactMod.Characters
         // Add pieces of the set
         public override bool IsArmorSet(Item head, Item body, Item legs)
         {
-            return true;
+            return body.type == ModContent.ItemType<XianglingBreastplate>() && legs.type == ModContent.ItemType<XianglingLeggings>();
         }
 
         // Add set bonus
