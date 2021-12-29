@@ -72,7 +72,7 @@ namespace GenshinImpactMod.Projectiles.ArmourSummons
             }
             else if (AI_State == STATE_FIRE)
             {
-                Projectile.NewProjectile();
+                Projectile.NewProjectile(projectile.position.X, projectile.position.Y, 0, 0, ProjectileID.Flames, 35, 0);
                 AI_Timer++;
                 if(AI_Timer > 20)
                 {
