@@ -20,9 +20,9 @@ namespace GenshinImpactMod.Projectiles.ArmourSummons
         #region SetDefaults 
         public override void SetDefaults()
         {
-            projectile.width = ;
-            projectile.height = ;
-            Main.projFrames[projectile.type] = 90;
+            projectile.width = 32;
+            projectile.height = 32;
+            Main.projFrames[projectile.type] = 8;
             projectile.friendly = true;
             projectile.penetrate = 3;
             projectile.minion = true;
@@ -36,6 +36,7 @@ namespace GenshinImpactMod.Projectiles.ArmourSummons
         {
             if (Stateidle)
             {
+                projectile.frame = (int)(timer / 5);
                 timer++;
                 if (timer > 20)
                 {
@@ -46,6 +47,7 @@ namespace GenshinImpactMod.Projectiles.ArmourSummons
             }
             else if (Statefire)
             {
+                projectile.frame = (int)(timer / 5) + 4;
                 timer++;
                 Projectile.NewProjectile(projectile.position.X, projectile.position.Y, 0, 0, ProjectileID.Flames, 25, 0);
                 if (timer > 20)

@@ -19,8 +19,8 @@ namespace GenshinImpactMod.Characters
         // Add Size values
         public override void SetDefaults()
         {
-            item.width = ;
-            item.height = ;
+            item.width = 10;
+            item.height = 10;
             item.value = 1;
             item.rare = ItemRarityID.Expert;
         }
@@ -28,7 +28,7 @@ namespace GenshinImpactMod.Characters
         // Add pieces of the set
         public override bool IsArmorSet(Item head, Item body, Item legs)
         {
-            
+            return true;
         }
 
         // Add set bonus
