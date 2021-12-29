@@ -79,8 +79,14 @@ namespace GenshinImpactMod
         //establishes how many times the flute has hit someone out of 5
         public int fluteHitCount = 0;
 
+        public int JadeSpearHits = 0;
+        private int JadeSpearTimer = 0;
+        private int JadeSpearDelay = 0;
+
         public override void OnHitNPC(Item item, NPC target, int damage, float knockback, bool crit)
         {
+            
+
             SkyriderGreatswordCounter = 0;
             if (SkyriderGreatswordDelay <= 0)
             {
@@ -113,7 +119,17 @@ namespace GenshinImpactMod
         }
         public override void OnHitNPCWithProj(Projectile proj, NPC target, int damage, float knockback, bool crit)
         {
-            if(target.life <= 0)
+            if (JadeSpearDelay >= 20)
+            {
+                JadeSpearTimer = 360;
+                JadeSpearHits++;
+                if (JadeSpearHits == 8)
+                {
+                    JadeSpearHits = 7;
+                }
+            }
+
+            if (target.life <= 0)
             {
                 BlackCliffdefeatedOpponent += 1;
                 BlackCliffcounter = 0;
@@ -137,6 +153,19 @@ namespace GenshinImpactMod
         }
         public override void PostUpdate()
         {
+            if(JadeSpearTimer > 0)
+            {
+                JadeSpearTimer--;
+            }
+            else
+            {
+                JadeSpearHits = 0;
+            }
+            if(JadeSpearDelay < 20)
+            {
+                JadeSpearDelay++;
+            }
+
             SkyriderGreatswordCounter++;
             if (SkyriderGreatswordDelay > 0)
             {
