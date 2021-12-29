@@ -8,17 +8,30 @@ using Terraria;
 using Terraria.ID;
 using Terraria.GameInput;
 using GenshinImpactMod.UI;
+using GenshinImpactMod.Characters;
+using Microsoft.Xna.Framework;
+using GenshinImpactMod.Projectiles.ArmourSummons;
 
 namespace GenshinImpactMod
 {
     class ModdedPlayer : ModPlayer
     {
+        public Vector2 velocity = new Vector2(1, 1);
+
         #region Hotkeys
         public override void ProcessTriggers(TriggersSet triggersSet)
         {
             if (GenshinImpactMod.ToggleWishingSystem.JustPressed)
             {
                 WishingSystem.Visible = !WishingSystem.Visible;
+            }
+
+            if (GenshinImpactMod.ElementalSkill.JustPressed)
+            {
+                if (XianglingHelmet.isArmourSet)
+                {
+                    Projectile.NewProjectile(player.position.X, player.position.Y, 0, 0, ModContent.ProjectileType<Guoba>(), 30, 0);
+                }
             }
         }
         #endregion

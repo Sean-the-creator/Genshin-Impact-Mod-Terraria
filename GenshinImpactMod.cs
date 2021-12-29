@@ -22,11 +22,14 @@ namespace GenshinImpactMod
 		private UserInterface _genshinImpactUserInterface;
 
 		internal WishingSystem WishingSystem;
+
         public static ModHotKey ToggleWishingSystem;
+        public static ModHotKey ElementalSkill;
 
         public override void Load()
         {
             ToggleWishingSystem = RegisterHotKey("Toggle Wishing System", "P");
+            ElementalSkill = RegisterHotKey("Elemental Skill", "F");
             if (!Main.dedServ)
             {
                 WishingSystem = new WishingSystem();
@@ -39,6 +42,7 @@ namespace GenshinImpactMod
         public override void Unload()
         {
             ToggleWishingSystem = null;
+            ElementalSkill = null;
         }
 
         public override void UpdateUI(GameTime gameTime)
