@@ -42,6 +42,7 @@ namespace GenshinImpactMod.Projectiles.ArmourSummons
             
             Player player = new Player();
             projectile.spriteDirection = player.direction;
+            projectile.direction = player.direction;
             if (Stateidle)
             {
                 projectile.frame = (int)(timer / 5);
