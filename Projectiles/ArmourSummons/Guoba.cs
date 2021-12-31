@@ -39,7 +39,9 @@ namespace GenshinImpactMod.Projectiles.ArmourSummons
         #endregion
         public override void AI()
         {
+            
             Player player = new Player();
+            projectile.spriteDirection = player.direction;
             if (Stateidle)
             {
                 projectile.frame = (int)(timer / 5);
