@@ -14,8 +14,11 @@ namespace GenshinImpactMod.Projectiles.ArmourSummons
         private int timer = 0;
         private int cycle = 0;
 
+
+
         private bool Stateidle = true;
         private bool Statefire = false;
+
         #endregion
 
         #region SetDefaults 
@@ -23,7 +26,7 @@ namespace GenshinImpactMod.Projectiles.ArmourSummons
         {
             projectile.width = 32;
             projectile.height = 32;
-            Main.projFrames[projectile.type] = 8;
+            Main.projFrames[projectile.type] = 16;
             projectile.friendly = true;
             projectile.penetrate = 3;
             projectile.minion = true;
@@ -39,13 +42,13 @@ namespace GenshinImpactMod.Projectiles.ArmourSummons
         #endregion
         public override void AI()
         {
-            
             Player player = new Player();
             projectile.spriteDirection = player.direction;
             projectile.direction = player.direction;
+
             if (Stateidle)
             {
-                projectile.frame = (int)(timer / 5);
+                projectile.frame = (int)(timer / 2.5);
                 timer++;
                 if (timer > 20)
                 {
@@ -56,9 +59,17 @@ namespace GenshinImpactMod.Projectiles.ArmourSummons
             }
             else if (Statefire)
             {
-                projectile.frame = (int)(timer / 5) + 4;
+                projectile.frame = (int)(timer / 2.5) + 2;
                 timer++;
-                Projectile.NewProjectile(projectile.position.X, projectile.position.Y, 5, 0, ProjectileID.Flames, 25, 0, player.whoAmI);
+                if (projectile.direction == 1)
+                {
+                    Projectile.NewProjectile(projectile.position.X, projectile.position.Y, 5, 0, ProjectileID.Flames, 25, 0, player.whoAmI);
+                }
+
+                if (projectile.direction == -1)
+                {
+                    Projectile.NewProjectile(-projectile.position.X, -projectile.position.Y, -5, 0, ProjectileID.Flames, 25, 0, player.whoAmI);
+                }
                 if (timer > 20)
                 {
                     Stateidle = true;
@@ -72,6 +83,10 @@ namespace GenshinImpactMod.Projectiles.ArmourSummons
             {
                 projectile.Kill();
             }
+
+
+
+
         }
 
 
