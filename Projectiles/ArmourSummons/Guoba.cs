@@ -32,7 +32,6 @@ namespace GenshinImpactMod.Projectiles.ArmourSummons
             projectile.minion = true;
             projectile.ignoreWater = true;
             projectile.timeLeft = 320;
-            projectile.tileCollide = false;
             projectile.aiStyle = -1;
             projectile.tileCollide = true;
             projectile.damage = 27;

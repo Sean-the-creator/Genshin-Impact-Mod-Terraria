@@ -25,11 +25,13 @@ namespace GenshinImpactMod
 
         public static ModHotKey ToggleWishingSystem;
         public static ModHotKey ElementalSkill;
+        public static ModHotKey ElementalBurst;
 
         public override void Load()
         {
             ToggleWishingSystem = RegisterHotKey("Toggle Wishing System", "P");
             ElementalSkill = RegisterHotKey("Elemental Skill", "F");
+            ElementalBurst = RegisterHotKey("Elemental Burst", "G");
             if (!Main.dedServ)
             {
                 WishingSystem = new WishingSystem();
@@ -43,6 +45,7 @@ namespace GenshinImpactMod
         {
             ToggleWishingSystem = null;
             ElementalSkill = null;
+            ElementalBurst = null;
         }
 
         public override void UpdateUI(GameTime gameTime)

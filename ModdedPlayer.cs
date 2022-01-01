@@ -33,6 +33,13 @@ namespace GenshinImpactMod
                     Projectile.NewProjectile(player.position.X, player.position.Y, 0, 1, ModContent.ProjectileType<Guoba>(), 30, 0, player.whoAmI);
                 }
             }
+            if (GenshinImpactMod.ElementalBurst.JustPressed)
+            {
+                if (XianglingHelmet.isArmourSet)
+                {
+                    Projectile.NewProjectile(player.position.X - 5, player.position.Y + 5, 0, 5, /*add item*/, 30, 0, player.whoAmI);
+                }
+            }
         }
         #endregion
         #region Hunger System
