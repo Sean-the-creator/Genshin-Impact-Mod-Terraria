@@ -37,7 +37,7 @@ namespace GenshinImpactMod
             {
                 if (XianglingHelmet.isArmourSet)
                 {
-                    Projectile.NewProjectile(player.position.X - 5, player.position.Y + 5, 0, 5, /*add item*/, 30, 0, player.whoAmI);
+                    Projectile.NewProjectile(player.position.X, player.position.Y, 0, 0, ModContent.ProjectileType<Pyronado>(), 30, 0, player.whoAmI);
                 }
             }
         }

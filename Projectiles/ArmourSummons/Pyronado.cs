@@ -1,5 +1,6 @@
 ﻿using Terraria;
 using Terraria.ModLoader;
+using Microsoft.Xna.Framework;
 using Terraria.ID;
 
 namespace GenshinImpactMod.Projectiles.ArmourSummons
@@ -10,7 +11,7 @@ namespace GenshinImpactMod.Projectiles.ArmourSummons
         {
             projectile.width = 32;
             projectile.height = 32;
-            Main.projFrames[projectile.type] = /*Add frames*/;
+            Main.projFrames[projectile.type] = 5;
             projectile.friendly = true;
             projectile.penetrate = 3;
             projectile.minion = true;
@@ -25,22 +26,8 @@ namespace GenshinImpactMod.Projectiles.ArmourSummons
         {
             Player player = new Player();
 
-            if (projectile.position.X == player.position.X && projectile.position.Y <= player.position.Y - 5)
-            {
-                projectile.velocity.Y++;
-            }
-            else if (projectile.position.X == player.position.X && projectile.position.Y >= player.position.Y + 5)
-            {
-                projectile.velocity.Y--;
-            }
-            else if (projectile.position.X >= player.position.X + 5 && projectile.position.Y == player.position.Y)
-            {
-                projectile.velocity.X--;
-            }
-            else if (projectile.position.X <= player.position.X - 5 && projectile.position.Y == player.position.Y)
-            {
-                projectile.velocity.X++;
-            }
+            projectile.Center = Main.player[projectile.owner].Center + new Vector2(0f, 70).RotatedBy(MathHelper.ToRadians(projectile.ai[0]));
+            projectile.ai[0] += 5;
         }
     }
 }
