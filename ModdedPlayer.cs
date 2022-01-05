@@ -17,7 +17,7 @@ namespace GenshinImpactMod
     class ModdedPlayer : ModPlayer
     {
         public Vector2 velocity = new Vector2(1, 1);
-
+        private int XianglingSkillCooldown = 0;
         #region Hotkeys
         public override void ProcessTriggers(TriggersSet triggersSet)
         {
@@ -28,9 +28,10 @@ namespace GenshinImpactMod
 
             if (GenshinImpactMod.ElementalSkill.JustPressed)
             {
-                if (XianglingHelmet.isArmourSet)
+                if (XianglingHelmet.isArmourSet && XianglingSkillCooldown <=0)
                 {
-                    Projectile.NewProjectile(player.position.X, player.position.Y, 0, 1, ModContent.ProjectileType<Guoba>(), 30, 0, player.whoAmI);
+                    Projectile.NewProjectile(player.position.X, player.position.Y, 0, 9, ModContent.ProjectileType<Guoba>(), 0, 0, player.whoAmI, 0, 0);
+                    XianglingSkillCooldown = 300;
                 }
             }
             if (GenshinImpactMod.ElementalBurst.JustPressed)
@@ -200,6 +201,11 @@ namespace GenshinImpactMod
             if(ThrillingTalesOfDragonSlayersDelay > 0)
             {
                 ThrillingTalesOfDragonSlayersDelay--;
+            }
+
+            if (XianglingSkillCooldown > 0)
+            {
+                XianglingSkillCooldown--;
             }
         }
     }

@@ -26,7 +26,7 @@ namespace GenshinImpactMod.Projectiles.ArmourSummons
         {
             projectile.width = 32;
             projectile.height = 32;
-            Main.projFrames[projectile.type] = 16;
+            Main.projFrames[projectile.type] = 8;
             projectile.friendly = true;
             projectile.penetrate = 3;
             projectile.minion = true;
@@ -42,37 +42,54 @@ namespace GenshinImpactMod.Projectiles.ArmourSummons
         public override void AI()
         {
             Player player = new Player();
-            projectile.spriteDirection = player.direction;
-            projectile.direction = player.direction;
+
+            if (++projectile.frameCounter >= 8)
+            {
+                projectile.frameCounter = 0;
+                if (++projectile.frame >= Main.projFrames[projectile.type])
+                {
+                    projectile.frame = 0;
+                }
+            }
+
+            if (player.direction == 1)
+            {
+                projectile.direction = 1;
+            }
+            else if (player.direction == -1)
+            {
+                projectile.direction = -1;
+            }
+            projectile.spriteDirection = projectile.direction;
 
             if (Stateidle)
             {
-                projectile.frame = (int)(timer / 2.5);
                 timer++;
-                if (timer > 20)
+                if (timer >= 42)
                 {
                     Stateidle = false;
                     Statefire = true;
                     timer = 0;
+                    if (projectile.direction == 1)
+                    {
+                        Projectile.NewProjectile(projectile.position.X, projectile.position.Y, 5, 0, ProjectileID.Flames, 25, 0, player.whoAmI);
+                    }
+
+                    if (projectile.direction == -1)
+                    {
+                        Projectile.NewProjectile(-projectile.position.X, -projectile.position.Y, -5, 0, ProjectileID.Flames, 25, 0, player.whoAmI);
+                    }
                 }
             }
             else if (Statefire)
             {
-                projectile.frame = (int)(timer / 2.5) + 2;
                 timer++;
-                if (projectile.direction == 1)
-                {
-                    Projectile.NewProjectile(projectile.position.X, projectile.position.Y, 5, 0, ProjectileID.Flames, 25, 0, player.whoAmI);
-                }
 
-                if (projectile.direction == -1)
-                {
-                    Projectile.NewProjectile(-projectile.position.X, -projectile.position.Y, -5, 0, ProjectileID.Flames, 25, 0, player.whoAmI);
-                }
-                if (timer > 20)
+                if (timer > 22)
                 {
                     Stateidle = true;
                     Statefire = false;
+                    timer = 0;
                     cycle++;
                 }
             }
@@ -84,7 +101,7 @@ namespace GenshinImpactMod.Projectiles.ArmourSummons
             }
 
 
-
+            projectile.velocity.X = 0;
 
         }
 
