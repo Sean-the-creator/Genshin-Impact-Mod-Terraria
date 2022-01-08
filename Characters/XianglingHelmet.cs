@@ -31,7 +31,6 @@ namespace GenshinImpactMod.Characters
             return body.type == ModContent.ItemType<XianglingBreastplate>() && legs.type == ModContent.ItemType<XianglingLeggings>();
         }
 
-        // Add set bonus
         public override void UpdateArmorSet(Player player)
         {
             isArmourSet = true;

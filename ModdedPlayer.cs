@@ -18,6 +18,8 @@ namespace GenshinImpactMod
     {
         public Vector2 velocity = new Vector2(1, 1);
         private int XianglingSkillCooldown = 0;
+        private int XianglingBurstCooldown = 0;
+
         #region Hotkeys
         public override void ProcessTriggers(TriggersSet triggersSet)
         {
@@ -31,14 +33,17 @@ namespace GenshinImpactMod
                 if (XianglingHelmet.isArmourSet && XianglingSkillCooldown <=0)
                 {
                     Projectile.NewProjectile(player.position.X, player.position.Y, 0, 9, ModContent.ProjectileType<Guoba>(), 0, 0, player.whoAmI, 0, 0);
-                    XianglingSkillCooldown = 300;
+                    Main.PlaySound(SoundID.Item20);
+                    XianglingSkillCooldown = 360;
                 }
             }
             if (GenshinImpactMod.ElementalBurst.JustPressed)
             {
-                if (XianglingHelmet.isArmourSet)
+                if (XianglingHelmet.isArmourSet && XianglingBurstCooldown <= 0)
                 {
                     Projectile.NewProjectile(player.position.X, player.position.Y, 0, 0, ModContent.ProjectileType<Pyronado>(), 30, 0, player.whoAmI);
+                    Main.PlaySound(SoundID.Item20);
+                    XianglingBurstCooldown = 900;
                 }
             }
         }
@@ -90,6 +95,7 @@ namespace GenshinImpactMod
         public int JadeSpearHits = 0;
         private int JadeSpearTimer = 0;
         private int JadeSpearDelay = 0;
+        public float JadeSpearmult = 0f;
 
         public override void OnHitNPC(Item item, NPC target, int damage, float knockback, bool crit)
         {
@@ -131,9 +137,18 @@ namespace GenshinImpactMod
             {
                 JadeSpearTimer = 360;
                 JadeSpearHits++;
-                if (JadeSpearHits == 8)
+                if (JadeSpearHits >= 8)
                 {
                     JadeSpearHits = 7;
+                }
+
+                if (JadeSpearHits >= 7)
+                {
+                    JadeSpearmult = 1.12f;
+                }
+                else
+                {
+                    JadeSpearmult = 0f;
                 }
             }
 
@@ -206,6 +221,11 @@ namespace GenshinImpactMod
             if (XianglingSkillCooldown > 0)
             {
                 XianglingSkillCooldown--;
+            }
+
+            if (XianglingBurstCooldown > 0)
+            {
+                XianglingBurstCooldown--;
             }
         }
     }

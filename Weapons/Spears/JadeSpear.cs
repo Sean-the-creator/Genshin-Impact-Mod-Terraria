@@ -43,7 +43,7 @@ namespace GenshinImpactMod.Weapons.Spears
         private float damageMult = 0.032f;
         public override void GetWeaponDamage(Player player, ref int damage)
         {
-            damage += (int)(player.GetModPlayer<ModdedPlayer>().JadeSpearHits * damageMult * damage);
+            damage += (int)(player.GetModPlayer<ModdedPlayer>().JadeSpearHits * damageMult * damage * player.GetModPlayer<ModdedPlayer>().JadeSpearmult);
         }
     }
 }

@@ -2,6 +2,7 @@
 using Terraria.ModLoader;
 using Microsoft.Xna.Framework;
 using Terraria.ID;
+using System;
 
 namespace GenshinImpactMod.Projectiles.ArmourSummons
 {
@@ -26,6 +27,8 @@ namespace GenshinImpactMod.Projectiles.ArmourSummons
         {
             Player player = new Player();
 
+            Random random = new Random();
+
             projectile.Center = Main.player[projectile.owner].Center + new Vector2(0f, 70).RotatedBy(MathHelper.ToRadians(projectile.ai[0]));
             projectile.ai[0] += 5;
 
@@ -37,6 +40,8 @@ namespace GenshinImpactMod.Projectiles.ArmourSummons
                     projectile.frame = 0;
                 }
             }
+
+            for (int x = 0; x < 10; x++) { int dust = Dust.NewDust(projectile.position, projectile.height, projectile.width, DustID.Fire, random.Next(-3, 3), random.Next(-3, 3)); }
         }
     }
 }

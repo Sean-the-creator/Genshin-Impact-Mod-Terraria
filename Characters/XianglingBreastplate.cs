@@ -10,7 +10,7 @@ namespace GenshinImpactMod.Characters
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Xiangling chest ;)");
+            DisplayName.SetDefault("Xiangling chest");
 
         }
 

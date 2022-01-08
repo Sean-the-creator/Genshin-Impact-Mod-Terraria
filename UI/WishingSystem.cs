@@ -28,6 +28,9 @@ namespace GenshinImpactMod.UI
         public static int[] items = new int[]{ModContent.ItemType<SkyriderGreatSword>(),
             ModContent.ItemType<BlackCliffPole>(),
             ModContent.ItemType<HarbingersDawn>(),
+            ModContent.ItemType<StaffOfHoma>(),
+            ModContent.ItemType<JadeCutter>(),
+            ModContent.ItemType<JadeSpear>(),
             ModContent.ItemType<ThrillingTalesOfDragonSlayers>()};
 
         public override void OnInitialize()
