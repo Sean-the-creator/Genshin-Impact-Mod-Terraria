@@ -31,24 +31,33 @@ namespace GenshinImpactMod
                 WishingSystem.Visible = !WishingSystem.Visible;
             }
 
+            #region Elemental Skills 
             if (GenshinImpactMod.ElementalSkill.JustPressed)
             {
+                #region Xiangling Cooldowns
                 if (XianglingHelmet.isArmourSet && XianglingSkillCooldown <=0)
                 {
                     Projectile.NewProjectile(player.position.X, player.position.Y, 0, 9, ModContent.ProjectileType<Guoba>(), 0, 0, player.whoAmI, 0, 0);
                     Main.PlaySound(SoundID.Item20);
                     XianglingSkillCooldown = 360;
                 }
+                #endregion
             }
+            #endregion
+
+            #region Elemental Bursts
             if (GenshinImpactMod.ElementalBurst.JustPressed)
             {
+                #region Xiangling Cooldowns
                 if (XianglingHelmet.isArmourSet && XianglingBurstCooldown <= 0)
                 {
                     Projectile.NewProjectile(player.position.X, player.position.Y, 0, 0, ModContent.ProjectileType<Pyronado>(), 30, 0, player.whoAmI);
                     Main.PlaySound(SoundID.Item20);
                     XianglingBurstCooldown = 900;
                 }
+                #endregion
             }
+            #endregion
         }
         #endregion
 
