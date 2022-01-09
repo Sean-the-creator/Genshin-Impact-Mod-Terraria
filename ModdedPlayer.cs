@@ -16,9 +16,12 @@ namespace GenshinImpactMod
 {
     class ModdedPlayer : ModPlayer
     {
+        #region Variables
+        #region CDs
         public Vector2 velocity = new Vector2(1, 1);
         private int XianglingSkillCooldown = 0;
         private int XianglingBurstCooldown = 0;
+        #endregion
 
         #region Hotkeys
         public override void ProcessTriggers(TriggersSet triggersSet)
@@ -48,6 +51,7 @@ namespace GenshinImpactMod
             }
         }
         #endregion
+
         #region Hunger System
 
         public int Saturation = 0;
@@ -75,32 +79,45 @@ namespace GenshinImpactMod
 
         #endregion
 
+        #region Weapons
+        #region Blackcliff Pole
         public int BlackCliffdefeatedOpponent = 0;
         private int BlackCliffcounter = 0;
+        #endregion
 
+        #region Skyrider Greatsword
         public int SkyriderGreatswordHit = 0;
         private int SkyriderGreatswordCounter = 0;
         private int SkyriderGreatswordDelay = 0;
+        #endregion
 
+        #region Thrilling Tales of Dragon SLayers
         //uses timer variables and the last item to change wether the modifier should be true or not
         public bool ThrillingTalesOfDragonSlayersDmgModifier = false;
         private int ThrillingTalesOfDragonSlayersDelay = 0;
         private int ThrillingTalesOfDragonSlayersLastItem = 0;
         private int ThrillingTalesOfDragonSlayersTimeRemaining = 0;
+        #endregion
 
-
+        #region Flute
         //establishes how many times the flute has hit someone out of 5
         public int fluteHitCount = 0;
+        #endregion
 
+        #region Jade Spear
         public int JadeSpearHits = 0;
         private int JadeSpearTimer = 0;
         private int JadeSpearDelay = 0;
         public float JadeSpearmult = 0f;
+        #endregion
+        #endregion
+        #endregion
 
+        #region On hit stuff
         public override void OnHitNPC(Item item, NPC target, int damage, float knockback, bool crit)
         {
-            
-
+            #region Weapons On hit NPC
+            #region Skyrider Greatsword Code On hit
             SkyriderGreatswordCounter = 0;
             if (SkyriderGreatswordDelay <= 0)
             {
@@ -111,7 +128,9 @@ namespace GenshinImpactMod
                     SkyriderGreatswordHit = 4;
                 }
             }
+            #endregion
 
+            #region Thrilling Tales Of Dragon Slayers Code On hit
             //tests for if the last item that was used is equal to this item
             if (item.type != ThrillingTalesOfDragonSlayersLastItem)
             {
@@ -123,16 +142,23 @@ namespace GenshinImpactMod
                     ThrillingTalesOfDragonSlayersDelay = 1200;
                 }
             }
+            #endregion
 
+            #region Flute Code on hit
             //when the flute hit count reaches 5 it automatically resets to zero
             fluteHitCount++;
             if(fluteHitCount >= 5)
             {
                 fluteHitCount = 0;
             }
+            #endregion
+            #endregion
         }
+
         public override void OnHitNPCWithProj(Projectile proj, NPC target, int damage, float knockback, bool crit)
         {
+            #region Weapons On hit With Proj
+            #region Jade Spear Code On hit with Proj
             if (JadeSpearDelay >= 20)
             {
                 JadeSpearTimer = 360;
@@ -151,7 +177,9 @@ namespace GenshinImpactMod
                     JadeSpearmult = 0f;
                 }
             }
+            #endregion
 
+            #region Black Cliff Pole On hit With Proj
             if (target.life <= 0)
             {
                 BlackCliffdefeatedOpponent += 1;
@@ -161,7 +189,9 @@ namespace GenshinImpactMod
                     BlackCliffdefeatedOpponent = 3;
                 }
             }
+            #endregion
 
+            #region Thrilling Tales of Dragon Slayers On hit with Proj
             //tests for if the last item that was used is equal to this item
             if (proj.type != ThrillingTalesOfDragonSlayersLastItem)
             {
@@ -173,10 +203,17 @@ namespace GenshinImpactMod
                     ThrillingTalesOfDragonSlayersDelay = 1200;
                 }
             }
+            #endregion
+            #endregion
         }
+        #endregion
+
+        #region Timers and Cooldowns
         public override void PostUpdate()
         {
-            if(JadeSpearTimer > 0)
+            #region Weapon Timers and stuff
+            #region Jade Spear Timer and stuff
+            if (JadeSpearTimer > 0)
             {
                 JadeSpearTimer--;
             }
@@ -188,7 +225,9 @@ namespace GenshinImpactMod
             {
                 JadeSpearDelay++;
             }
+            #endregion
 
+            #region Skyrider Greatsword Timer and stuff
             SkyriderGreatswordCounter++;
             if (SkyriderGreatswordDelay > 0)
             {
@@ -199,14 +238,18 @@ namespace GenshinImpactMod
                 SkyriderGreatswordCounter = 0;
                 SkyriderGreatswordHit = 0;
             }
+            #endregion
 
+            #region Blackcliff Pole Timer and stuff
             BlackCliffcounter++;
             if(BlackCliffcounter >= 1800)
             {
                 BlackCliffdefeatedOpponent = 0;
                 BlackCliffcounter = 0;
             }
+            #endregion
 
+            #region Thrilling Tales of Dragon Slayers Timer and stuff
             //updates the item according to timers
             ThrillingTalesOfDragonSlayersDmgModifier = ThrillingTalesOfDragonSlayersTimeRemaining > 0;
             if(ThrillingTalesOfDragonSlayersTimeRemaining > 0)
@@ -217,7 +260,10 @@ namespace GenshinImpactMod
             {
                 ThrillingTalesOfDragonSlayersDelay--;
             }
+            #endregion
+            #endregion
 
+            #region Xiangling Cooldowns
             if (XianglingSkillCooldown > 0)
             {
                 XianglingSkillCooldown--;
@@ -227,6 +273,8 @@ namespace GenshinImpactMod
             {
                 XianglingBurstCooldown--;
             }
+            #endregion
         }
+        #endregion
     }
 }

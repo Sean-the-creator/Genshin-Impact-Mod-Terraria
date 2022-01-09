@@ -18,7 +18,7 @@ namespace GenshinImpactMod.Weapons.Swords
 
         public override void SetDefaults()
         {
-            item.damage = 26;
+            item.damage = 11;
             item.melee = true;
             item.width = 64;
             item.height = 64;
