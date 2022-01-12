@@ -64,7 +64,7 @@ namespace GenshinImpactMod
         #region Hunger System
 
         public int Saturation = 0;
-        public bool CanEat = false;
+        public bool CanEat = true;
         private int EatingTimer = 0;
         public override void PreUpdate()
         {
