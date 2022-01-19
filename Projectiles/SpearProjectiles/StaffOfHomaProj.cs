@@ -15,7 +15,8 @@ namespace GenshinImpactMod.Projectiles.SpearProjectiles
 	{
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Beginner's Protector");
+			DisplayName.SetDefault("Staff of Homa");
+
 		}
 
 		public override void SetDefaults()

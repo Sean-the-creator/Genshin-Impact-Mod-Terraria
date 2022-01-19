@@ -13,6 +13,7 @@ using GenshinImpactMod.Weapons.Claymores;
 using GenshinImpactMod.Weapons.Bows;
 using GenshinImpactMod.Weapons.Catalysts;
 using Terraria.GameContent.UI.Elements;
+using GenshinImpactMod.Characters;
 using System.Collections.Generic;
 using GenshinImpactMod.Items;
 
@@ -29,9 +30,11 @@ namespace GenshinImpactMod.UI
             ModContent.ItemType<BlackCliffPole>(),
             ModContent.ItemType<HarbingersDawn>(),
             ModContent.ItemType<StaffOfHoma>(),
+            ModContent.ItemType<XianglingHelmet>(),
             ModContent.ItemType<JadeCutter>(),
             ModContent.ItemType<JadeSpear>(),
             ModContent.ItemType<ThrillingTalesOfDragonSlayers>()};
+
 
         public override void OnInitialize()
         {
@@ -89,7 +92,17 @@ namespace GenshinImpactMod.UI
                     Random random = new Random();
                     if (item.type == ModContent.ItemType<AcquiantFate>())
                     {
-                        player.QuickSpawnItem(items[random.Next(0, items.Length)]);
+                        int wishItem = items[random.Next(0, items.Length)];
+                        if (wishItem == ModContent.ItemType<XianglingHelmet>())
+                        {
+                            player.QuickSpawnItem(ModContent.ItemType<XianglingHelmet>());
+                            player.QuickSpawnItem(ModContent.ItemType<XianglingBreastplate>());
+                            player.QuickSpawnItem(ModContent.ItemType<XianglingLeggings>());
+                        }
+                        else
+                        {
+                            player.QuickSpawnItem(wishItem);
+                        }
                         item.stack--;
                         Main.PlaySound(SoundID.Pixie);
                         for (int x = 0; x < 10; x++) { int dust = Dust.NewDust(player.position, player.height, player.width, DustID.Clentaminator_Cyan, random.Next(-3, 3), random.Next(-3, 3)); }

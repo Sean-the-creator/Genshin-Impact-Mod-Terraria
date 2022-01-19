@@ -10,12 +10,12 @@ using GenshinImpactMod;
 
 namespace GenshinImpactMod.Items.Food
 {
-    class MonsdadtHashbrown : ModItem
+    class EggRoll : ModItem
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Monsdadt Hashbrown");
-            Tooltip.SetDefault("ARE THESE NUGGIES\n- Timmie");
+            DisplayName.SetDefault("Egg Roll");
+            Tooltip.SetDefault("First Flatten the egg\n then roll the egg");
         }
 
         public override void SetDefaults()
@@ -23,7 +23,7 @@ namespace GenshinImpactMod.Items.Food
             item.width = 64;
             item.height = 64;
             ModdedPlayer player = new ModdedPlayer();
-            
+
 
                 item.useTurn = true;
                 item.maxStack = 30;
@@ -34,10 +34,10 @@ namespace GenshinImpactMod.Items.Food
 
                 item.UseSound = SoundID.Item2;
 
-            
+
                 item.stack--;
                 item.buffType = BuffID.WellFed;
-                item.buffTime = 10000;
+                item.buffTime = 8000;
                 player.Saturation = 100;
             
 

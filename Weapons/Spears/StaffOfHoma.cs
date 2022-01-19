@@ -14,8 +14,8 @@ namespace GenshinImpactMod.Weapons.Spears
     {
         public override void SetStaticDefaults()
         {
-            Tooltip.SetDefault("A polearm as straight as a flag pole. Well suited to most combat situations, it has an imposing presence when swung.");
-            DisplayName.SetDefault("Beginner's Protector");
+            Tooltip.SetDefault("OP");
+            DisplayName.SetDefault("Staff of Homa");
         }
 
         public override void SetDefaults()
